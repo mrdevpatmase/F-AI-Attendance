@@ -2,7 +2,7 @@ import cv2
 import os
 
 name =  input("Enter your name: \n")
-folder_path = f"01_Project/dataset/{name}"
+folder_path = f"dataset/{name}"
 
 os.makedirs(folder_path, exist_ok=True)
 
