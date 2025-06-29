@@ -4,20 +4,6 @@ This project uses **face recognition** to automatically mark attendance using a 
 
 ---
 
-## 📁 Project Structure
-
-├── 01_Project/
-│ ├── capture_faces.py # Capture face images for each person
-│ ├── gen_encoding.py # Generate face encodings from images
-│ ├── detect_attendence.py # Real-time face detection & attendance
-│ ├── encodings.pkl # Pickle file storing encoded face data
-├── dataset/
-│ ├── name_1/
-│ └── name_2/
-│ ├── name_3/
-│ └── name_4/
-├── attendance.csv # Output attendance log
-
 ---
 
 ## 🚀 How It Works
