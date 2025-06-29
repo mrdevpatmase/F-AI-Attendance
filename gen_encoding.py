@@ -5,8 +5,8 @@ import face_recognition
 import pickle
 
 
-dataset_path = r"C:\Users\devpa\OneDrive\Desktop\AlML\01_Project\dataset"              ## stored images
-encodings_path = r"C:\Users\devpa\OneDrive\Desktop\AlML\01_Project\encodings.pkl"      ## stored encodings from images
+dataset_path = r"C:\Users\devpa\OneDrive\Desktop\F-AI Attendance\dataset"              ## stored images
+encodings_path = r"C:\Users\devpa\OneDrive\Desktop\F-AI Attendance\encodings.pkl"      ## stored encodings from images
 
 known_encodings = []
 known_names = []
