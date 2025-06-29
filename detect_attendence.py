@@ -2,7 +2,6 @@ import cv2
 import numpy as np
 import face_recognition
 import pickle
-import os
 from datetime import datetime
 import csv
 
@@ -16,7 +15,7 @@ def mark_attendance(name):
         writer.writerow([name, date_time])
 
 
-with open("01_Project/encodings.pkl", "rb") as file:
+with open("encodings.pkl", "rb") as file:
     data = pickle.load(file)
 
 known_encodings = data["encodings"]
