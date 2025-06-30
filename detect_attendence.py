@@ -4,6 +4,8 @@ import pickle
 from datetime import datetime
 import csv
 import os
+import pyttsx3
+from playsound import playsound
 
 # Function to mark attendance
 
@@ -23,9 +25,16 @@ def mark_attendance(name):
             now = datetime.now()
             date_time = now.strftime("%Y-%m-%d %H:%M:%S")
             writer.writerow([name, date_time])
-            print(f"✅ Marked attendance for {name} at {date_time}")
+            # print(f"✅ Marked attendance for {name} at {date_time}")
+            engine = pyttsx3.init()
+            if os.path.exists(r"C:\Users\devpa\OneDrive\Desktop\F-AI Attendance\Sample Files\ding-36029.mp3"):
+                playsound(r"C:\Users\devpa\OneDrive\Desktop\F-AI Attendance\Sample Files\ding-36029.mp3")
+            engine.say(f"Welcome {name}")
+            engine.runAndWait()
     else:
-        print(f"ℹ️ {name} already marked.")
+        engine = pyttsx3.init()
+        engine.say(f"{name} already marked")
+        engine.runAndWait()
 
 
 with open("encodings.pkl", "rb") as file:
