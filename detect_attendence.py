@@ -5,10 +5,16 @@ from datetime import datetime
 import csv
 import os
 import pyttsx3
-# from playsound import playsound
-# py -3.10 detect_attendence.py
-# Function to mark attendance
+from playsound import playsound
 
+# py -3.10 detect_attendence.py
+# function to play sound
+def play_sound():
+    SOUND_PATH = r"C:\Users\devpa\OneDrive\Desktop\F-AI Attendance\Sample Files\ding-36029.mp3"
+    if os.path.exists(SOUND_PATH):
+        playsound(SOUND_PATH)
+
+# Function to mark attendance
 def mark_attendance(name):
     names = []
 
@@ -28,10 +34,9 @@ def mark_attendance(name):
             writer.writerow([name, date_time])
             # print(f"✅ Marked attendance for {name} at {date_time}")
             engine = pyttsx3.init()
-            # if os.path.exists(r"C:\Users\devpa\OneDrive\Desktop\F-AI Attendance\Sample Files\ding-36029.mp3"):
-            #     playsound(r"C:\Users\devpa\OneDrive\Desktop\F-AI Attendance\Sample Files\ding-36029.mp3")
             engine.say(f"Welcome {name}")
             engine.runAndWait()
+            play_sound()
     else:
         engine = pyttsx3.init()
         engine.say(f"{name} already marked")
@@ -76,7 +81,7 @@ while cap.isOpened():
                 mark_attendance(name)
 
         cv2.imshow("Camera", frame)
-        if cv2.waitKey(1) & 0xFF == ord("q"):   
+        if cv2.waitKey(1) & 0xff == ord("q"):   
             break
 
 cap.release()
