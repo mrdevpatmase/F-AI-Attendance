@@ -7,16 +7,6 @@ import os
 
 # Function to mark attendance
 
-# def mark_attendance(name):
-    # with open("attendance.csv", "a", newline="") as file:
-    #     writer = csv.writer(file)
-    #     now = datetime.now()
-    #     date_time = now.strftime("%Y-%m-%d %H:%M:%S")
-
-    #     if name not in open("attendance.csv").read():
-    #         writer.writerow([name, date_time])
-    #         print(f"Attendance marked for name {name} at {date_time}")
-
 def mark_attendance(name):
     names = []
 
