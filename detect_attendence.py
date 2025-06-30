@@ -6,13 +6,25 @@ import csv
 import os
 import pyttsx3
 from playsound import playsound
-
+import pandas as pd
+# to run this script
 # py -3.10 detect_attendence.py
 # function to play sound
 def play_sound():
     SOUND_PATH = r"C:\Users\devpa\OneDrive\Desktop\F-AI Attendance\Sample Files\ding-36029.mp3"
     if os.path.exists(SOUND_PATH):
         playsound(SOUND_PATH)
+
+## csv to excel
+
+def csv_to_excel():
+    csv_file = "Attendance_" + datetime.now().strftime("%Y-%m-%d") + ".csv"
+    excel_file = "Attendance_" + datetime.now().strftime("%Y-%m-%d") + ".xlsx"
+
+    if os.path.exists(csv_file):
+        df = pd.read_csv(csv_file)
+        df.to_excel(excel_file, index=False)
+        print(f"Converted {csv_file} to {excel_file}")
 
 # Function to mark attendance
 def mark_attendance(name):
@@ -86,4 +98,11 @@ while cap.isOpened():
 
 cap.release()
 cv2.destroyAllWindows()
+
+response = input("Do you want to convert this file to excel? (y/n)")
+
+if response.lower() == "y":
+    csv_to_excel()
+else:
+    print("Exiting without conversion.")
 
