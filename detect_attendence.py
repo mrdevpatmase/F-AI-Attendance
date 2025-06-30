@@ -6,23 +6,24 @@ import csv
 import os
 import pyttsx3
 # from playsound import playsound
-
+# py -3.10 detect_attendence.py
 # Function to mark attendance
 
 def mark_attendance(name):
     names = []
 
+    now = datetime.now()
+    file_name = now.strftime("%Y-%m-%d")
     # Read all existing names from the file
-    if os.path.exists("attendance.csv"):
-        with open("attendance.csv", "r") as file:
+    if os.path.exists(f"Attendance_{file_name}.csv"):
+        with open(f"Attendance_{file_name}.csv", "r") as file:
             reader = csv.reader(file)
             names = [row[0] for row in reader if row]
 
     # If name not in list, add it
     if name not in names:
-        with open("attendance.csv", "a", newline="") as file:
+        with open(f"Attendance_{file_name}.csv", "a", newline="") as file:
             writer = csv.writer(file)
-            now = datetime.now()
             date_time = now.strftime("%Y-%m-%d %H:%M:%S")
             writer.writerow([name, date_time])
             # print(f"✅ Marked attendance for {name} at {date_time}")
