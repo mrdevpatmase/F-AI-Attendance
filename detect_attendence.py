@@ -5,7 +5,7 @@ from datetime import datetime
 import csv
 import os
 import pyttsx3
-from playsound import playsound
+# from playsound import playsound
 
 # Function to mark attendance
 
@@ -27,8 +27,8 @@ def mark_attendance(name):
             writer.writerow([name, date_time])
             # print(f"✅ Marked attendance for {name} at {date_time}")
             engine = pyttsx3.init()
-            if os.path.exists(r"C:\Users\devpa\OneDrive\Desktop\F-AI Attendance\Sample Files\ding-36029.mp3"):
-                playsound(r"C:\Users\devpa\OneDrive\Desktop\F-AI Attendance\Sample Files\ding-36029.mp3")
+            # if os.path.exists(r"C:\Users\devpa\OneDrive\Desktop\F-AI Attendance\Sample Files\ding-36029.mp3"):
+            #     playsound(r"C:\Users\devpa\OneDrive\Desktop\F-AI Attendance\Sample Files\ding-36029.mp3")
             engine.say(f"Welcome {name}")
             engine.runAndWait()
     else:
