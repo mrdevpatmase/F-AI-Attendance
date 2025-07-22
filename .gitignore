@@ -20,6 +20,7 @@ attendance.csv
 
 # Temporarily ignore GUI file
 gui_attendance.py
+train_model.py
 
 # IDE or Editor specific files
 .vscode/
