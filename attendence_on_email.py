@@ -7,9 +7,6 @@ import os
 
 load_dotenv()  # Load variables from .env into environment
 
-
-##  attendence on email 
-
 def send_attendence_email():
     df = pd.read_csv(f"Attendance_{datetime.now().strftime('%Y-%m-%d')}.csv")
     df.to_excel(f"Attendance_{datetime.now().strftime('%Y-%m-%d')}.xlsx", index=False)
@@ -39,5 +36,6 @@ def send_attendence_email():
     else:
         print("File not found.")
 
-
-send_attendence_email()
+# ✅ Only runs if this file is executed directly
+if __name__ == "__main__":
+    send_attendence_email()
